@@ -1,0 +1,44 @@
+
+
+h1 {text-align: center;
+  border-bottom: 3px solid rgb(1, 1, 36);
+  padding-bottom: 5px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 60px
+
+}
+
+h2 {text-align: left;
+  padding-bottom: 5px;
+  padding-top: 5px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  
+}
+
+ul {text-align: left;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 20PX;
+
+}
+
+.well {text-align: left;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  padding-top: 0px
+  
+}
+
+.update {text-align: center;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  border-top: 3px solid rgb(1, 1, 36);
+  padding-top: 10px;
+ 
+}
+
+img {  width: 100%;
+  height: 100%;
+  background-image: url('img_flowers.jpg');
+  background-repeat: no-repeat;
+  background-size: contain;
+  border: 3px solid rgb(1, 1, 36);
+
+}

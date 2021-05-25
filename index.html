@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Heart Failure Prediction Using Machine Learning</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/superhero/bootstrap.min.css">
+  <link rel="stylesheet" href="static/css/style.css">
+  
+</head>
+
+<body>
+
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <img src="Images/heart.png" class="img-fluid side" > 
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12 jumbotron text-center">
+        <h1>Heart Failure Prediction Model</h1>
+        <h2>What is heart failure? Heart failure happens when the heart cannot pump enough blood and oxygen to support other organs in your body.</h2>
+        <h2>Facts About Heart Failure in the United States from the CDC:</h2>
+        <ul>
+          <li>Heart disease is the leading cause of death for men, women, and people of most racial and ethnic groups in the United States.</li>
+          <li>One person dies every 36 seconds in the United States from cardiovascular disease.</li>
+          <li>About 655,000 Americans die from heart disease each year—that’s 1 in every 4 deaths.</li>
+        </ul>
+        <h3 class="update">The below form takes patient data and uses machine learning to predict if the patient is at risk for heart failure.</h3>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-3">
+        <div class="well">
+          <h4>Please input the following patient information into the form on the right.</h4>
+          <h5>Age (years)</h5>
+          <h5>Do you have anemia? Yes/No</h5>
+          <h5>Creatinine Phosphokinase Level (mcg/L). Typical range is 10 to 120.</h5>
+          <h5>Are you diabetic? Yes/No</h5>
+          <h5>Ejection Fraction is the percentage of blood leaving the heart at each contraction (percentage). Typical range is 50 to 70%</h5>
+          <h5>Do you have high blood pressure (hypertension)? Yes/No</h5>
+          <h5>Platelets in Blood (kiloplatelets/mL). Typical range is 150k to 450k. </h5>
+          <h5>Serum Creatinine level (mg/dL). Typical range is 0.6 to 1.35. </h5>
+          <h5>Serum Sodium level (mEq/L). Typical range is 135 to 145. </h5>
+          <h5>Gender (M/F)</h5>
+          <h5>Do you smoke? Yes/No</h5>
+          <h5>Time-Follow-up period (days)</h5>
+          
+        </div>
+
+      </div>
+      <div class="col-md-3">
+        <aside class="filters">
+          <div class="panel panel-default">
+            <div class="panel-heading">Input Data Form</div>
+            <div class="panel-body">
+              <form id="form">
+                <div class="form-group">
+                  <ul class="list-group" id="filters">
+                    <li class="filter list-group-item">
+                      <label for="age">Age</label>
+                      <input class="form-control" id="age" type="text" placeholder="30">
+                    </li>
+                    <li class="filter list-group-item">
+                      <label for="anemia">Anemia</label>
+                      <input class="form-control" id="anemia" type="text" placeholder="no">
+                    </li>
+                    <li class="filter list-group-item">
+                      <label for="creatinine_phosphokinase level (mcg/L)">Creatinine Phosphokinase Level (mcg/L)</label>
+                      <input class="form-control" id="creatinine_phosphokinase level (mcg/L)" type="text" placeholder="1000">
+                    </li>
+                    <li class="filter list-group-item">
+                      <label for="diabetic">Diabetic</label>
+                      <input class="form-control" id="diabetic" type="text" placeholder="no">
+                    </li>
+                    <li class="filter list-group-item">
+                      <label for="Ejection Fraction">Ejection Fraction</label>
+                      <input class="form-control" id="Ejection Fraction" type="text" placeholder="50.0">
+                    </li>
+                    <li class="filter list-group-item">
+                      <label for="High Blood Pressure">High Blood Pressure</label>
+                      <input class="form-control" id="High Blood Pressure" type="text" placeholder="No">
+                    </li>
+                    <li class="filter list-group-item">
+                      <label for="Platelets in the blood (kiloplatelets/mL)">Platelets in Blood (kiloplatelets/mL)</label>
+                      <input class="form-control" id="Platelets in the blood (kiloplatelets/mL)" type="text" placeholder="263000">
+                    </li>
+                    <li class="filter list-group-item">
+                      <label for="Serum Creatinine">Serum Creatinine (mg/dL)</label>
+                      <input class="form-control" id="Serum Creatinine" type="text" placeholder="1.1">
+                    </li>
+                    <li class="filter list-group-item">
+                      <label for="Serum Sodium (mEq/L)">Serum Sodium (mEq/L)</label>
+                      <input class="form-control" id="Serum Sodium (mEq/L)" type="text" placeholder="140">
+                    </li>
+                    <li class="filter list-group-item">
+                      <label for="Gender (M/F)">Gender (M/F)</label>
+                      <input class="form-control" id="Gender (M/F)" type="text" placeholder="M">
+                    </li>
+                    <li class="filter list-group-item">
+                      <label for="Smoking">Smoker</label>
+                      <input class="form-control" id="Smoking" type="text" placeholder="No">
+                    </li>
+                    <li class="filter list-group-item">
+                      <label for="Time">Time-Follow-up period (days)</label>
+                      <input class="form-control" id="Time" type="text" placeholder="100">
+                    </li>
+                  </ul>
+                </div>
+                <button id="filter-btn" type="button" class="btn btn-default">See Results</button>
+              </form>
+            </div>
+          </div>
+        </aside>
+      </div>
+      <!-- <div class="col-md-5">
+        <div id="bar"></div>
+      </div>
+      <div class="col-md-5">
+        <div id="gauge"></div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        
+        <div id="bubble"></div>
+      </div>
+    </div> -->
+  </div>
+
+
+  <!-- <script src="./data/samples.json"></script>  -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.js"></script>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <script src="./static/js/app.js"></script>
+  <!-- <script src="./static/js/bonus.js"></script> -->
+  
+  
+</body>
+
+</html>
