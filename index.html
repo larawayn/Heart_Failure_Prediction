@@ -6,8 +6,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Heart Failure Prediction Using Machine Learning</title>
+  <link rel="icon" type="image/png" href="https://img.icons8.com/doodle/48/000000/medical-heart.png">
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.9.1/d3-tip.js"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/superhero/bootstrap.min.css">
   <link rel="stylesheet" href="static/css/style.css">
+  <link rel="stylesheet" href="static/css/d3Style.css">
   
 </head>
 
@@ -15,9 +21,7 @@
 
   <div class="container">
     <div class="row">
-      <div class="col">
-        <img src="Images/heart.png" class="img-fluid side" > 
-      </div>
+        <img src="Images/heart.png" class="img-fluid" > 
     </div>
     <div class="row">
       <div class="col-md-12 jumbotron text-center">
@@ -33,7 +37,7 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-md-3">
+      <div class="col-md-2">
         <div class="well">
           <h4>Please input the following patient information into the form on the right.</h4>
           <h5>Age (years)</h5>
@@ -52,7 +56,7 @@
         </div>
 
       </div>
-      <div class="col-md-3">
+      <div class="col-md-2">
         <aside class="filters">
           <div class="panel panel-default">
             <div class="panel-heading">Input Data Form</div>
@@ -116,27 +120,20 @@
           </div>
         </aside>
       </div>
-      <!-- <div class="col-md-5">
-        <div id="bar"></div>
+      <div class="col-md-6">
+        <div id="scatter">
+
       </div>
-      <div class="col-md-5">
-        <div id="gauge"></div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-12">
-        
-        <div id="bubble"></div>
-      </div>
-    </div> -->
+      
+    
   </div>
 
 
-  <!-- <script src="./data/samples.json"></script>  -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.js"></script>
-  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-  <script src="./static/js/app.js"></script>
-  <!-- <script src="./static/js/bonus.js"></script> -->
+
+ 
+  <!-- <script src="./static/js/app.js"></script> -->
+  <script type="text/javascript" src="static/js/bonus.js"></script>
+  
   
   
 </body>
