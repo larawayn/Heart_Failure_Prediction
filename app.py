@@ -48,7 +48,7 @@ def heart():
         heart_dict['sex'] = item['sex']
         heart_dict['smoking'] = item['smoking']
         heart_dict['time'] = item['time']
-        heart_dict['Death Event'] = item['DEATH_EVENT']
+        heart_dict['DEATH_EVENT'] = item['DEATH_EVENT']
         data.append(heart_dict)
 
     return jsonify(data)
