@@ -164,9 +164,8 @@ function updateToolTip(chosenXAxis, chosenYAxis, circlesGroup) {
     return circlesGroup;
 };
 
-// Retrieve data from the CSV file and execute everything below
-//d3.json(/api/v1.0/Heart_Failure_Records)
-d3.csv("../static/Data/heart.csv").then(function (data, err) {
+// Retrieve data from the API and execute everything below
+d3.json("/api/v1.0/Heart_Failure_Records").then(function (data, err) {
     if (err) throw err;
 
     // parse data
