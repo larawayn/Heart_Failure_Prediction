@@ -176,6 +176,7 @@ d3.json("/api/v1.0/Heart_Failure_Records").then(function (data, err) {
         data['serum_creatinine'] = +data['serum_creatinine'];
         data['ejection_fraction'] = +data['ejection_fraction'];
         data['DEATH_EVENT'] = +data['DEATH_EVENT'];
+        console.log(data['DEATH_EVENT'])
     });
 
 
@@ -203,6 +204,7 @@ d3.json("/api/v1.0/Heart_Failure_Records").then(function (data, err) {
 
     // Add Color
     var color = d3.scaleOrdinal(data.map(d => d.DEATH_EVENT), ["#c0392b", "#2980b9"])
+    console.log(color)
 
     // append initial circles
     var circlesGroup = chartGroup.append('g')
