@@ -42,3 +42,18 @@ img {  width: 150%;
   border: 3px solid rgb(1, 1, 36);
 
 }
+
+select {
+  color: black
+}
+
+.blinking{
+  animation:blinkingText 1.2s infinite;
+}
+@keyframes blinkingText{
+  0%{     color: #000;    }
+  49%{    color: #000; }
+  60%{    color: transparent; }
+  99%{    color:transparent;  }
+  100%{   color: #000;    }
+}

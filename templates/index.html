@@ -21,7 +21,7 @@
 
   <div class="container">
     <div class="row">
-        <img src="Images/heart.png" class="img-fluid" > 
+        <img src="../static/Images/heart.png" class="img-fluid" > 
     </div>
     <div class="row">
       <div class="col-md-12 jumbotron text-center">
@@ -41,18 +41,14 @@
         <div class="well">
           <h4>Please input the following patient information into the form on the right.</h4>
           <h5>Age (years)</h5>
-          <h5>Do you have anemia? Yes/No</h5>
+          <h5>Do you have anemia?  (Yes/No)</h5>
           <h5>Creatinine Phosphokinase Level (mcg/L). Typical range is 10 to 120.</h5>
-          <h5>Are you diabetic? Yes/No</h5>
+          <h5>Are you diabetic?   (Yes/No)</h5>
           <h5>Ejection Fraction is the percentage of blood leaving the heart at each contraction (percentage). Typical range is 50 to 70%</h5>
-          <h5>Do you have high blood pressure (hypertension)? Yes/No</h5>
           <h5>Platelets in Blood (kiloplatelets/mL). Typical range is 150k to 450k. </h5>
           <h5>Serum Creatinine level (mg/dL). Typical range is 0.6 to 1.35. </h5>
           <h5>Serum Sodium level (mEq/L). Typical range is 135 to 145. </h5>
-          <h5>Gender (M/F)</h5>
-          <h5>Do you smoke? Yes/No</h5>
-          <h5>Time-Follow-up period (days)</h5>
-          
+          <h5>Gender (M/F)</h5>         
         </div>
 
       </div>
@@ -61,60 +57,57 @@
           <div class="panel panel-default">
             <div class="panel-heading">Input Data Form</div>
             <div class="panel-body">
-              <form id="form">
+              <form action="/result" method="POST">
                 <div class="form-group">
                   <ul class="list-group" id="filters">
                     <li class="filter list-group-item">
                       <label for="age">Age</label>
-                      <input class="form-control" id="age" type="text" placeholder="30">
+                      <input class="form-control" id="age" type="number" name="age" placeholder="30">
                     </li>
                     <li class="filter list-group-item">
-                      <label for="anemia">Anemia</label>
-                      <input class="form-control" id="anemia" type="text" placeholder="no">
+                      <label for="anemia">Anemia (Yes/No)</label>
+                      <select id="anemia"  name="anaemia"  placeholder="0">
+                        <option value="0">No</option>
+                        <option value="1">Yes</option>
+                      </select>
                     </li>
                     <li class="filter list-group-item">
                       <label for="creatinine_phosphokinase level (mcg/L)">Creatinine Phosphokinase Level (mcg/L)</label>
-                      <input class="form-control" id="creatinine_phosphokinase level (mcg/L)" type="text" placeholder="1000">
+                      <input class="form-control" id="creatinine_phosphokinase level (mcg/L)" type="number" name="creatinine_phosphokinase" placeholder="1000">
                     </li>
                     <li class="filter list-group-item">
-                      <label for="diabetic">Diabetic</label>
-                      <input class="form-control" id="diabetic" type="text" placeholder="no">
+                      <label for="diabetic">Diabetic (Yes/No))</label>
+                      <select  id="diabetic"  name="diabetes" placeholder="No">
+                        <option value="0">No</option>
+                        <option value="1">Yes</option>
+                      </select>
                     </li>
                     <li class="filter list-group-item">
                       <label for="Ejection Fraction">Ejection Fraction</label>
-                      <input class="form-control" id="Ejection Fraction" type="text" placeholder="50.0">
-                    </li>
-                    <li class="filter list-group-item">
-                      <label for="High Blood Pressure">High Blood Pressure</label>
-                      <input class="form-control" id="High Blood Pressure" type="text" placeholder="No">
+                      <input class="form-control" id="Ejection Fraction" type="number" name="ejection_fraction" placeholder="50">
                     </li>
                     <li class="filter list-group-item">
                       <label for="Platelets in the blood (kiloplatelets/mL)">Platelets in Blood (kiloplatelets/mL)</label>
-                      <input class="form-control" id="Platelets in the blood (kiloplatelets/mL)" type="text" placeholder="263000">
+                      <input class="form-control" id="Platelets in the blood (kiloplatelets/mL)" type="number" name="platelets" placeholder="263000">
                     </li>
                     <li class="filter list-group-item">
                       <label for="Serum Creatinine">Serum Creatinine (mg/dL)</label>
-                      <input class="form-control" id="Serum Creatinine" type="text" placeholder="1.1">
+                      <input class="form-control" id="Serum Creatinine" type="text" name="serum_creatinine" placeholder="1.1">
                     </li>
                     <li class="filter list-group-item">
                       <label for="Serum Sodium (mEq/L)">Serum Sodium (mEq/L)</label>
-                      <input class="form-control" id="Serum Sodium (mEq/L)" type="text" placeholder="140">
+                      <input class="form-control" id="Serum Sodium (mEq/L)" type="number" name="serum_sodium" placeholder="140">
                     </li>
                     <li class="filter list-group-item">
                       <label for="Gender (M/F)">Gender (M/F)</label>
-                      <input class="form-control" id="Gender (M/F)" type="text" placeholder="M">
-                    </li>
-                    <li class="filter list-group-item">
-                      <label for="Smoking">Smoker</label>
-                      <input class="form-control" id="Smoking" type="text" placeholder="No">
-                    </li>
-                    <li class="filter list-group-item">
-                      <label for="Time">Time-Follow-up period (days)</label>
-                      <input class="form-control" id="Time" type="text" placeholder="100">
+                      <select id="Gender (M/F)"  name="sex" placeholder="M">
+                        <option value="0">M</option>
+                        <option value="1">F</option>
+                      </select>
                     </li>
                   </ul>
                 </div>
-                <button id="filter-btn" type="button" class="btn btn-default">See Results</button>
+                <button id="filter-btn" type="submit" class="btn btn-default" value="Submit">See Results</button>
               </form>
             </div>
           </div>
