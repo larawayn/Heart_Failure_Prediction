@@ -1,6 +1,6 @@
 
 // set svg dimensional params
-var svgWidth = 960;
+var svgWidth = 760;
 var svgHeight = 500;
 
 var margin = {
@@ -36,11 +36,18 @@ var chosenYAxis = "serum_creatinine";
 // function used for updating x-scale var upon click on axis label
 function xScale(data, chosenXAxis) {
     // create scales
-    var xLinearScale = d3.scaleLinear()
-        .domain([d3.min(data, d => d[chosenXAxis]) * 0.8,
-        d3.max(data, d => d[chosenXAxis]) * 1.2
-        ])
-        .range([0, width]);
+    if (chosenXAxis === 'age') {
+        var xLinearScale = d3.scaleLinear()
+            .domain([d3.min(data, d => d[chosenXAxis]) * 0.8,
+            d3.max(data, d => d[chosenXAxis]) * 1.2
+            ])
+            .range([0, width]);
+    }
+    else {
+        var xLinearScale = d3.scaleLinear()
+            .domain([-1, 2])
+            .range([0, width]);
+    }
 
     return xLinearScale;
 
@@ -153,6 +160,7 @@ function updateToolTip(chosenXAxis, chosenYAxis, circlesGroup) {
 };
 
 // Retrieve data from the CSV file and execute everything below
+//d3.json(/api/v1.0/Heart_Failure_Records)
 d3.csv("../static/Data/heart.csv").then(function (data, err) {
     if (err) throw err;
 
@@ -165,7 +173,7 @@ d3.csv("../static/Data/heart.csv").then(function (data, err) {
         data['DEATH_EVENT'] = +data['DEATH_EVENT'];
     });
 
-    
+
 
     // xLinearScale function above csv import
     var xLinearScale = xScale(data, chosenXAxis);
