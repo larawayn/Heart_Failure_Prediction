@@ -202,7 +202,7 @@ d3.json("/api/v1.0/Heart_Failure_Records").then(function (data, err) {
         .call(leftAxis);
 
     // Add Color
-    var color = d3.scaleOrdinal(data.map(d => d.DEATH_EVENT), ["#2980b9", "#c0392b"])
+    var color = d3.scaleOrdinal(data.map(d => d.DEATH_EVENT), ["#c0392b", "#2980b9"])
 
     // append initial circles
     var circlesGroup = chartGroup.append('g')
