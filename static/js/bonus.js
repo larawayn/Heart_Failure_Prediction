@@ -1,8 +1,8 @@
-function blink_text() {
-    $('.blink').fadeOut(500);
-    $('.blink').fadeIn(500);
-}
-setInterval(blink_text, 1000);
+// function blink_text() {
+//     $('.blink').fadeOut(500);
+//     $('.blink').fadeIn(500);
+// }
+// setInterval(blink_text, 1000);
 
 // set svg dimensional params
 var svgWidth = 760;
@@ -165,6 +165,7 @@ function updateToolTip(chosenXAxis, chosenYAxis, circlesGroup) {
 };
 
 // Retrieve data from the API and execute everything below
+//d3.csv("../static/Data/heart.csv")
 d3.json("/api/v1.0/Heart_Failure_Records").then(function (data, err) {
     if (err) throw err;
 
