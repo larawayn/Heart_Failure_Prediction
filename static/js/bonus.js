@@ -1,8 +1,8 @@
-// function blink_text() {
-//     $('.blink').fadeOut(500);
-//     $('.blink').fadeIn(500);
-// }
-// setInterval(blink_text, 1000);
+function blink_text() {
+    $('.blink').fadeOut(500);
+    $('.blink').fadeIn(500);
+}
+setInterval(blink_text, 1000);
 
 // set svg dimensional params
 var svgWidth = 760;
@@ -50,7 +50,7 @@ function xScale(data, chosenXAxis) {
     }
     else {
         var xLinearScale = d3.scaleLinear()
-            .domain([-1, 2])
+            .domain([0, 3])
             .range([0, width]);
     }
 
@@ -95,16 +95,16 @@ function renderYAxes(yScale, yAxis) {
 // new circles text group omitted
 function renderXCircles(circlesGroup, xScale, chosenXAxis) {
 
+    var jitterwidth = 40
     circlesGroup.transition()
         .duration(1000)
-        .attr("cx", d => xScale(d[chosenXAxis]));
 
-    // textGroup.transition()
-    //     .duration(1000)
-    //     .attr("x", d => xScale(d[chosenXAxis]));
-
-
-    return circlesGroup;
+    if (chosenXAxis === 'sex') {
+        circlesGroup.attr("cx", d => xScale(d[chosenXAxis]) - Math.random() * jitterwidth)
+    }
+    else {
+        circlesGroup.attr("cx", d => xScale(d[chosenXAxis]));
+    }
 };
 
 // function used for updating circles group with a transition to
@@ -172,7 +172,7 @@ d3.json("/api/v1.0/Heart_Failure_Records").then(function (data, err) {
     // parse data
     data.forEach(function (data) {
         data['age'] = +data['age'];
-        data['sex'] = +data['sex'];
+        data['sex'] = +data['sex'] + 1;
         data['serum_creatinine'] = +data['serum_creatinine'];
         data['ejection_fraction'] = +data['ejection_fraction'];
         data['DEATH_EVENT'] = +data['DEATH_EVENT'];
