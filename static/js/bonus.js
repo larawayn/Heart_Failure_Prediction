@@ -105,6 +105,7 @@ function renderXCircles(circlesGroup, xScale, chosenXAxis) {
     else {
         circlesGroup.attr("cx", d => xScale(d[chosenXAxis]));
     }
+    return circlesGroup;
 };
 
 // function used for updating circles group with a transition to
